@@ -117,151 +117,26 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-  return bundleURL;
+})({"src/index.js":[function(require,module,exports) {
+var name = "名前";
+var age = 25;
+var massage2 = "\u79C1\u306E\u540D\u524D\u306F".concat(name, "\u3067\u3059\u3002\u5E74\u9F62\u306F").concat(age, "\u3067\u3059\u3002");
+console.log(massage2);
+
+/* function func1(str) {
+  return str;
 }
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-  return '/';
-}
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-    cssTimeout = null;
-  }, 50);
-}
-module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
-"use strict";
+const func1 = function (str) {
+  return str;
+};
+console.log(func1("func1です"));
+ */
 
-require("./styles.css");
-/*
-let result = 78;
-if (result >= 70) {
-  console.log("合格です");
-  console.log("おめでとうございます");
-}
-
-let result = 68;
-if (result >= 70) {
-  console.log("合格です");
-  console.log("おめでとうございます");
-} else {
-  console.log("不合格です");
-  console.log("残念です。");
-}
-
-function passCheck(result) {
-  if (result > 90) {
-    console.log("チッ、合格だ。");
-    console.log("まあ普通のことよ");
-  } else if (result > 80) {
-    console.log("修正しておけよカス");
-  } else {
-    console.log("不合格っすねー！！！");
-    console.log("どんまいっす^^;");
-  }
-}
-
-function passCheck(result) {
-  if (result > 80) {
-    if (result > 90) {
-      console.log("チッ、合格だ。");
-      console.log("まあ普通のことよ");
-    } else {
-      console.log("修正して再提出してください");
-    }else{
-      console.log('不合格です');
-      console.log('残念でした');
-    }
-  }
-}
-
-
-let result = new Array(85, 75, 92);
-let sum = 0;
-
-for (let i = 0; i < result.length; i++) {
-  console.log(result[i]);
-  sum + result[i];
-}
-
-console.log("ave = " + sum / result.length);
-
-
-let result = [78, 69, 84, 50];
-let fruit = ["apple", "lemon"];
-
-let profile = ["Yamada", 24, "Tokyo", true];
-
-let data = [];
-console.log(data);
-
-let data = [84, , 76];
-
-console.log(data);
-console.log(data[1]);
-
-
-let result = [10, 42, 52];
-let user = { name: "Yamada", old: 28 };
-
-console.log(typeof result);
-console.log(typeof user);
-
-let result = [43, 22, 76];
-let user = { name: "Yamada", old: 65 };
-
-console.log(Array.isArray(result));
-console.log(Array.isArray(user));
-*/
-
-var fruit = ["A", "B", "C"];
-fruit.shift();
-console.log(fruit);
-document.getElementById("app").innerHTML = "\n<h1>ja Vanilla!</h1>\n<div>AAA\n  We use the same configuration as Parcel to bundle this sandbox, you can find more\n  info about Parcel \n  <a href=\"https://parceljs.org\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>.\n</div>\n";
-},{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var func2 = function func2(str) {
+  return str;
+};
+console.log(func2("func2です"));
+},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -286,7 +161,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44021" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32799" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
