@@ -122,6 +122,20 @@ var name = "名前";
 var age = 25;
 var massage2 = "\u79C1\u306E\u540D\u524D\u306F".concat(name, "\u3067\u3059\u3002\u5E74\u9F62\u306F").concat(age, "\u3067\u3059\u3002");
 console.log(massage2);
+
+/* function func1(str) {
+  return str;
+}
+const func1 = function (str) {
+  return str;
+};
+console.log(func1("func1です"));
+ */
+
+var func2 = function func2(str) {
+  return str;
+};
+console.log(func2("func2です"));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -147,7 +161,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40859" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32799" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
