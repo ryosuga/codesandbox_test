@@ -118,24 +118,47 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/index.js":[function(require,module,exports) {
-var name = "名前";
-var age = 25;
-var massage2 = "\u79C1\u306E\u540D\u524D\u306F".concat(name, "\u3067\u3059\u3002\u5E74\u9F62\u306F").concat(age, "\u3067\u3059\u3002");
-console.log(massage2);
+/* 論理演算子の本当の意味を知ろう 
+&&(且つ) ||(または) */
+// const flag1 = true;
+// const flag2 = false;
 
-/* function func1(str) {
-  return str;
-}
-const func1 = function (str) {
-  return str;
-};
-console.log(func1("func1です"));
+// if (flag1 || flag2) {
+//   console.log("1か2はtrueになります");
+// }
+// //表示
+// if (flag1 && flag2) {
+//   console.log("1も2もtrueになります");
+// }
+// //表示されない
+
+// || は左側がfalseなら右側を返す。
+// const num = null;
+// const fee = num || "金額未設定です";
+// console.log(fee);
+
+// && は左側がtrueなら右側を返す。
+// const num2 = 100;
+// const fee2 = num2 && "何か設定されました。";
+// console.log(fee2);
+
+/* 三項演算子 */
+/* const vall = 1 > 0 ? "trueです" : "falseです";
+console.log(val1); */
+
+/* const num = 1300;
+//console.log(num.toLocaleString());
+
+const formattedNum =
+  typeof num === "number" ? num.toLocaleString() : "数値を入力してください。";
+console.log(formattedNum);
  */
-
-var func2 = function func2(str) {
-  return str;
+/* 
+const checkSum = (num1, num2) => {
+  return num1 + num2 > 100 ? "100を超えています" : "許容範囲以内です";
 };
-console.log(func2("func2です"));
+console.log(checkSum(50, 40));
+ */
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -161,7 +184,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32799" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42419" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
